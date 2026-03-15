@@ -1,1 +1,14 @@
-
+[
+  {
+    "title": "Test bericht",
+    "publicationDate": "2026-03-14",
+    "newsType": "Blue",
+    "newsMessage": "Dit is een tess nieuwsbericht. Deze tonen we in de app op de startpagina. Het heeft een news type zodat we veschillende styles kunnen gebruiken."
+  },
+  {
+    "title": "Test bericht 2",
+    "publicationDate": "2026-03-15",
+    "newsType": "Green",
+    "newsMessage": "Nieuwsbericht nummer 2."
+  }
+]
