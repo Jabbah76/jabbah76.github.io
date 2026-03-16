@@ -4,29 +4,5 @@
     "publicationDate": "2026-03-16",
     "newsType": "Blue",
     "newsMessage": "As of version 2.7.0 we have made some changes to the home screen to make the layout a little prettier and cleaner."
-  },
-  {
-    "title": "Test bericht 2",
-    "publicationDate": "2026-03-13",
-    "newsType": "Green",
-    "newsMessage": "Nieuwsbericht nummer 2."
-  },
-  {
-    "title": "Test bericht 3",
-    "publicationDate": "2026-03-10",
-    "newsType": "Green",
-    "newsMessage": "Nieuwsbericht nummer 2."
-  },
-  {
-    "title": "Test bericht 4",
-    "publicationDate": "2026-03-07",
-    "newsType": "Green",
-    "newsMessage": "Nieuwsbericht nummer 2."
-  },
-  {
-    "title": "Test bericht 5",
-    "publicationDate": "2026-03-07",
-    "newsType": "Green",
-    "newsMessage": "Nieuwsbericht nummer 2."
   }
 ]
