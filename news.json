@@ -22,5 +22,11 @@
     "publicationDate": "2026-03-07",
     "newsType": "Green",
     "newsMessage": "Nieuwsbericht nummer 2."
+  },
+  {
+    "title": "Test bericht 5",
+    "publicationDate": "2026-03-07",
+    "newsType": "Green",
+    "newsMessage": "Nieuwsbericht nummer 2."
   }
 ]
