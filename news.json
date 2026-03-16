@@ -1,13 +1,25 @@
 [
   {
-    "title": "Test bericht",
-    "publicationDate": "2026-03-14",
+    "title": "Updated home screen",
+    "publicationDate": "2026-03-16",
     "newsType": "Blue",
-    "newsMessage": "Dit is een tess nieuwsbericht. Deze tonen we in de app op de startpagina. Het heeft een news type zodat we veschillende styles kunnen gebruiken."
+    "newsMessage": "As of version 2.7.0 we have made some changes to the home screen to make the layout a little prettier and cleaner."
   },
   {
     "title": "Test bericht 2",
-    "publicationDate": "2026-03-15",
+    "publicationDate": "2026-03-13",
+    "newsType": "Green",
+    "newsMessage": "Nieuwsbericht nummer 2."
+  },
+  {
+    "title": "Test bericht 3",
+    "publicationDate": "2026-03-10",
+    "newsType": "Green",
+    "newsMessage": "Nieuwsbericht nummer 2."
+  },
+  {
+    "title": "Test bericht 4",
+    "publicationDate": "2026-03-07",
     "newsType": "Green",
     "newsMessage": "Nieuwsbericht nummer 2."
   }
