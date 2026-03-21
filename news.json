@@ -4,5 +4,11 @@
     "publicationDate": "2026-03-18",
     "newsType": "Blue",
     "newsMessage": "As of version 2.7.0 we have made some changes to the home screen to make the layout a little prettier and cleaner."
+  },
+  {
+    "title": "About Premium",
+    "publicationDate": "2026-03-21",
+    "newsType": "Blue",
+    "newsMessage": "We got some questions and comments about Brick Manager Premium. Brick Manager has been free for more than 5 years, but the tools and services the app relies on are no longer free. Because of that I had to make a choice: either shut the app down or introduce a premium option to keep it alive. Hope that clears up some questions. "
   }
 ]
