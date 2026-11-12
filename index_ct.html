@@ -1,0 +1,186 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cat Tracks – A cozy yarn puzzle</title>
+<meta name="description" content="Cat Tracks is a cozy logic puzzle game. Help Biscuit the cat lay a trail of yarn across the board.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Homepage van Cat Tracks: één bestand, zonder afbeeldingen. -->
+<style>
+  :root {
+    --cream: #FBF5EC;
+    --card: #FFFFFF;
+    --rose: #E07A8F;
+    --rose-light: #F8C3CE;
+    --rose-dark: #B23E5A;
+    --ink: #3B2A24;
+    --muted: #8C6F66;
+    --line: #F3DCE1;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: "Fredoka", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  a { color: var(--rose-dark); }
+
+  /* Kop met een schuin raster als achtergrond, zoals het app-icoon */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #F59AAE, var(--rose-dark));
+    color: #fff;
+    text-align: center;
+    padding: 72px 16px 88px;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.22) 3px, transparent 3px),
+      linear-gradient(90deg, rgba(255,255,255,0.22) 3px, transparent 3px);
+    background-size: 72px 72px;
+    transform: rotate(-12deg);
+  }
+  .hero > * { position: relative; }
+  .hero h1 { margin: 0; font-weight: 600; font-size: clamp(2.6rem, 9vw, 4.2rem); line-height: 1.1; }
+  .hero p { margin: 14px auto 0; max-width: 520px; font-size: 1.2rem; opacity: 0.95; }
+  .button {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    background: #fff;
+    color: var(--rose-dark);
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    box-shadow: 0 6px 16px rgba(59, 42, 36, 0.2);
+  }
+  .button:hover { background: var(--cream); }
+
+  /* Een draadje wol als scheiding onder de kop */
+  .yarn {
+    height: 18px;
+    margin-top: -9px;
+    position: relative;
+    background: var(--rose);
+    border-top: 3px solid #C9566E;
+    border-bottom: 3px solid #C9566E;
+  }
+  .yarn::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 50%;
+    border-top: 3px dashed var(--rose-light);
+    transform: translateY(-50%);
+  }
+
+  main { max-width: 860px; margin: 0 auto; padding: 48px 16px 24px; }
+  h2 { font-weight: 600; font-size: 1.6rem; color: var(--rose-dark); text-align: center; margin: 0 0 24px; }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 56px;
+  }
+  @media (max-width: 600px) {
+    .features { grid-template-columns: 1fr; }
+  }
+  .feature {
+    background: var(--card);
+    border-radius: 20px;
+    padding: 20px 22px;
+    box-shadow: 0 6px 18px rgba(59, 42, 36, 0.07);
+  }
+  .feature h3 { margin: 0 0 4px; font-weight: 600; font-size: 1.15rem; }
+  .feature p { margin: 0; color: var(--muted); }
+  .feature .dot {
+    display: inline-block;
+    width: 14px; height: 14px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: var(--rose);
+    border: 3px solid #C9566E;
+    vertical-align: -1px;
+  }
+
+  .how {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 6px 18px rgba(59, 42, 36, 0.07);
+    margin-bottom: 48px;
+  }
+  .how ol { margin: 0; padding-left: 1.4em; }
+  .how li { margin: 8px 0; }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.95rem;
+    padding: 8px 16px 48px;
+  }
+  footer nav { margin-bottom: 8px; }
+  footer nav a { margin: 0 10px; color: var(--rose-dark); font-weight: 500; }
+  .fill { background: #FFF1B8; padding: 0 4px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<section class="hero">
+  <h1>Cat Tracks</h1>
+  <p>A cozy logic puzzle. Help Biscuit the cat lay a trail of yarn across the board, from one end to the other.</p>
+  <a class="button" href="https://play.google.com/store/apps/details?id=com.psychosoft.cattracks">Get it on Google Play</a>
+</section>
+<div class="yarn"></div>
+
+<main>
+  <h2>Why you&rsquo;ll love it</h2>
+  <div class="features">
+    <div class="feature">
+      <h3><span class="dot"></span>Endless puzzles</h3>
+      <p>Start small and work your way up to bigger and trickier boards. There is always a next level.</p>
+    </div>
+    <div class="feature">
+      <h3><span class="dot"></span>Daily puzzle</h3>
+      <p>A fresh puzzle every day, the same for everyone. How fast can you solve it?</p>
+    </div>
+    <div class="feature">
+      <h3><span class="dot"></span>Friendly hints</h3>
+      <p>Stuck? A hint shows you the next step, so you never get lost for long.</p>
+    </div>
+    <div class="feature">
+      <h3><span class="dot"></span>Play anywhere</h3>
+      <p>Sign in with Google Play Games to keep your progress on all your devices.</p>
+    </div>
+  </div>
+
+  <section class="how">
+    <h2>How to play</h2>
+    <ol>
+      <li>Lay one unbroken trail of yarn from the starting ball to the end of the board.</li>
+      <li>The numbers along the edges tell you how many squares in that row or column hold yarn.</li>
+      <li>The trail never crosses itself and never branches.</li>
+      <li>Mark squares you know are empty with a paw print. Use logic, no guessing needed!</li>
+    </ol>
+  </section>
+</main>
+
+<footer>
+  <nav>
+    <a href="privacy_ct.html">Privacy Policy</a>
+    <a href="terms-of-service-ct.html">Terms of Service</a>
+  </nav>
+  &copy; 2026 Jasper van den Bergh
+</footer>
+</body>
+</html>
