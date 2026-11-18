@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capybara Springs – A puzzle to soak in</title>
+<meta name="description" content="Capybara Springs is a relaxing logic puzzle game. Help Mochi the capybara give every hot spring its own capybara.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Homepage van Capybara Springs: één bestand, zonder afbeeldingen. Zelfde opzet als index_ct.html (Cat Tracks),
+     met de kleuren van de app: turquoise bronwater en yuzu-oranje. -->
+<style>
+  :root {
+    --cream: #FBF5EC;
+    --card: #FFFFFF;
+    --teal: #2F8F8A;
+    --teal-soft: #8FD3CB;
+    --teal-light: #D2F0EC;
+    --teal-dark: #1F6B67;
+    --yuzu: #F5B730;
+    --yuzu-dark: #DB9216;
+    --ink: #4A3A35;
+    --muted: #8C6F66;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: "Fredoka", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  a { color: var(--teal-dark); }
+
+  /* Kop in het turquoise van het app-icoon, met sliertjes stoom als achtergrond */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #7FD0C6, var(--teal));
+    color: #fff;
+    text-align: center;
+    padding: 72px 16px 88px;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.22' stroke-width='5' stroke-linecap='round'%3E%3Cpath d='M24 54 C12 42 36 32 22 14'/%3E%3Cpath d='M84 114 C72 102 96 92 82 74'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 120px 120px;
+  }
+  .hero > * { position: relative; }
+  .hero h1 { margin: 0; font-weight: 600; font-size: clamp(2.6rem, 9vw, 4.2rem); line-height: 1.1; }
+  .hero p { margin: 14px auto 0; max-width: 520px; font-size: 1.2rem; opacity: 0.95; }
+  .button {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    background: #fff;
+    color: var(--teal-dark);
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    box-shadow: 0 6px 16px rgba(74, 58, 53, 0.2);
+  }
+  .button:hover { background: var(--cream); }
+
+  /* Een golvende waterrand als scheiding onder de kop */
+  .water {
+    height: 26px;
+    margin-top: -14px;
+    position: relative;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='26' viewBox='0 0 80 26'%3E%3Cpath d='M0 8 Q20 0 40 8 T80 8 V26 H0 Z' fill='%238FD3CB'/%3E%3Cpath d='M0 8 Q20 0 40 8 T80 8' fill='none' stroke='%23D2F0EC' stroke-width='3'/%3E%3C/svg%3E");
+    background-size: 80px 26px;
+    background-repeat: repeat-x;
+  }
+
+  main { max-width: 860px; margin: 0 auto; padding: 48px 16px 24px; }
+  h2 { font-weight: 600; font-size: 1.6rem; color: var(--teal-dark); text-align: center; margin: 0 0 24px; }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 56px;
+  }
+  @media (max-width: 600px) {
+    .features { grid-template-columns: 1fr; }
+  }
+  .feature {
+    background: var(--card);
+    border-radius: 20px;
+    padding: 20px 22px;
+    box-shadow: 0 6px 18px rgba(74, 58, 53, 0.07);
+  }
+  .feature h3 { margin: 0 0 4px; font-weight: 600; font-size: 1.15rem; }
+  .feature p { margin: 0; color: var(--muted); }
+  /* Een yuzu als opsommingsteken */
+  .feature .dot {
+    display: inline-block;
+    width: 16px; height: 15px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: var(--yuzu);
+    box-shadow: inset 0 -3px 0 var(--yuzu-dark);
+    vertical-align: -1px;
+  }
+
+  .how {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 6px 18px rgba(74, 58, 53, 0.07);
+    margin-bottom: 48px;
+  }
+  .how ol { margin: 0; padding-left: 1.4em; }
+  .how li { margin: 8px 0; }
+  .how li::marker { color: var(--teal); font-weight: 600; }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.95rem;
+    padding: 8px 16px 48px;
+  }
+  footer nav { margin-bottom: 8px; }
+  footer nav a { margin: 0 10px; color: var(--teal-dark); font-weight: 500; }
+</style>
+</head>
+<body>
+<section class="hero">
+  <h1>Capybara Springs</h1>
+  <p>A relaxing logic puzzle. Help Mochi the capybara give every hot spring its own capybara.</p>
+  <a class="button" href="https://play.google.com/store/apps/details?id=com.psychosoft.capybarasprings">Get it on Google Play</a>
+</section>
+<div class="water"></div>
+
+<main>
+  <h2>Why you&rsquo;ll love it</h2>
+  <div class="features">
+    <div class="feature">
+      <h3><span class="dot"></span>Endless puzzles</h3>
+      <p>Start small and work your way up to bigger and trickier boards. There is always a next level.</p>
+    </div>
+    <div class="feature">
+      <h3><span class="dot"></span>Daily puzzle</h3>
+      <p>A fresh puzzle every day, the same for everyone. How fast can you solve it?</p>
+    </div>
+    <div class="feature">
+      <h3><span class="dot"></span>Friendly hints</h3>
+      <p>Stuck? A hint shows you the next step, so you never get lost for long.</p>
+    </div>
+    <div class="feature">
+      <h3><span class="dot"></span>Play anywhere</h3>
+      <p>Sign in with Google Play Games to keep your progress on all your devices.</p>
+    </div>
+  </div>
+
+  <section class="how">
+    <h2>How to play</h2>
+    <ol>
+      <li>Every hot spring gets exactly one capybara, right next to it: above, below, left or right.</li>
+      <li>The numbers along the edges tell you how many capybaras sit in that row or column.</li>
+      <li>Capybaras never touch each other, not even diagonally.</li>
+      <li>Cover squares you know stay empty with grass. Use logic, no guessing needed!</li>
+    </ol>
+  </section>
+</main>
+
+<footer>
+  <nav>
+    <a href="privacy_cs.html">Privacy Policy</a>
+    <a href="terms-of-service-cs.html">Terms of Service</a>
+  </nav>
+  &copy; 2026 Jasper van den Bergh
+</footer>
+</body>
+</html>
